@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { robotProduct } from "@/data/robot";
 import { ArrowRight, Sparkles, Send } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 export default function FinalCTA() {
   return (
@@ -81,12 +82,12 @@ export default function FinalCTA() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
             <img
-              src="/images/robot/hero-robot.webp"
+              src={getAssetPath("/images/robot/hero-robot.webp")}
               alt="TechyGuide Smart Robot Purchase Overview"
               className="w-full max-w-[380px] sm:max-w-[440px] h-auto object-contain drop-shadow-[0_20px_50px_rgba(121,22,165,0.5)]"
               loading="lazy"
               onError={(e) => {
-                e.currentTarget.src = "/images/robot/hero-robot.webp";
+                e.currentTarget.src = getAssetPath("/images/robot/hero-robot.webp");
               }}
             />
           </motion.div>

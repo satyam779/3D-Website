@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown, ShieldCheck, Zap, ArrowRight } from "lucide-react";
 import { robotProduct } from "@/data/robot";
+import { getAssetPath } from "@/lib/utils";
 
 export default function RobotHero() {
   return (
@@ -85,12 +86,12 @@ export default function RobotHero() {
             {/* Transparent full-width robot image showcase */}
             <div className="relative w-full flex justify-center items-center">
               <img
-                src="/images/robot/hero-robot.webp"
+                src={getAssetPath("/images/robot/hero-robot.webp")}
                 alt="TechyGuide Educational Smart Robot Platform"
                 className="w-full max-w-[650px] sm:max-w-[780px] md:max-w-[900px] lg:max-w-[1000px] max-h-[46vh] sm:max-h-[50vh] object-contain drop-shadow-[0_25px_60px_rgba(168,85,247,0.45)] select-none pointer-events-none filter"
                 loading="eager"
                 onError={(e) => {
-                  e.currentTarget.src = "/images/robot/hero-robot.webp";
+                  e.currentTarget.src = getAssetPath("/images/robot/hero-robot.webp");
                 }}
               />
             </div>

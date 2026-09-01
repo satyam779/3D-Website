@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 import { Layers, Disc, Sliders, Cpu, Activity, Sparkles, CheckCircle2 } from "lucide-react";
 
 const TOTAL_FRAMES = 120;
@@ -10,7 +10,7 @@ const TOTAL_FRAMES = 120;
 // Helper to format frame path
 function getFrameUrl(index: number): string {
   const padded = String(index).padStart(4, "0");
-  return `/images/robot/sequence/frame_${padded}.webp`;
+  return getAssetPath(`/images/robot/sequence/frame_${padded}.webp`);
 }
 
 interface StoryOverlayProps {
@@ -151,7 +151,7 @@ export default function RobotScrollSequence() {
 
     // Load fallback hero image first
     const fallback = new Image();
-    fallback.src = "/images/robot/hero-robot.webp";
+    fallback.src = getAssetPath("/images/robot/hero-robot.webp");
     fallbackImageRef.current = fallback;
     fallback.onload = () => {
       if (isMounted && !imagesRef.current[0]) {
@@ -182,7 +182,7 @@ export default function RobotScrollSequence() {
         img.onerror = () => {
           // If .webp fails, try .jpg fallback
           const jpgImg = new Image();
-          jpgImg.src = `/images/robot/sequence/frame_${String(index + 1).padStart(4, "0")}.jpg`;
+          jpgImg.src = getAssetPath(`/images/robot/sequence/frame_${String(index + 1).padStart(4, "0")}.jpg`);
           jpgImg.onload = () => {
             if (!isMounted) return resolve();
             imagesRef.current[index] = jpgImg;

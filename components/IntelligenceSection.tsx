@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
-import { Cpu, Zap, Radio, Disc, KeyRound, Sparkles } from "lucide-react";
+import { Cpu, Zap, Activity, MemoryStick, Layers, Radio, Disc, KeyRound, Sparkles } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 export default function IntelligenceSection() {
   const pcbNodes = [
@@ -76,12 +77,12 @@ export default function IntelligenceSection() {
 
             <div className="relative group">
               <img
-                src="/images/robot/hero-robot.webp"
+                src={getAssetPath("/images/robot/hero-robot.webp")}
                 alt="TechyGuide Custom Purple Robotics PCB Architecture"
                 className="w-full max-w-[420px] h-auto object-contain drop-shadow-[0_15px_45px_rgba(121,22,165,0.5)] group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 onError={(e) => {
-                  e.currentTarget.src = "/images/robot/hero-robot.webp";
+                  e.currentTarget.src = getAssetPath("/images/robot/hero-robot.webp");
                 }}
               />
 

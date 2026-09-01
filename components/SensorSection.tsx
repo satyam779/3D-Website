@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { Radio, Activity, CheckCircle, Wifi, Gauge } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 export default function SensorSection() {
   const [distance, setDistance] = useState(34.8);
@@ -54,12 +55,12 @@ export default function SensorSection() {
           {/* Subtle radar sweep animation */}
           <div className="relative rounded-2xl overflow-hidden bg-[#07040B] flex items-center justify-center min-h-[320px] sm:min-h-[420px]">
             <img
-              src="/images/robot/hero-robot.webp"
+              src={getAssetPath("/images/robot/hero-robot.webp")}
               alt="TechyGuide Robot Dual Ultrasonic Sensor Array"
               className="w-full max-w-[480px] h-auto object-contain drop-shadow-[0_10px_35px_rgba(121,22,165,0.4)] group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               onError={(e) => {
-                e.currentTarget.src = "/images/robot/hero-robot.webp";
+                e.currentTarget.src = getAssetPath("/images/robot/hero-robot.webp");
               }}
             />
 

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { robotProduct } from "@/data/robot";
 import { CheckCircle2, Shield, Wrench, Sparkles, Cpu } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 export default function EngineeringSection() {
   const pills = [
@@ -85,12 +86,12 @@ export default function EngineeringSection() {
             </div>
 
             <img
-              src="/images/robot/hero-robot.webp"
+              src={getAssetPath("/images/robot/hero-robot.webp")}
               alt="TechyGuide Robot Chassis and Wheels Engineering"
               className="w-full max-w-[340px] mx-auto h-auto object-contain my-4 drop-shadow-[0_10px_30px_rgba(121,22,165,0.4)]"
               loading="lazy"
               onError={(e) => {
-                e.currentTarget.src = "/images/robot/hero-robot.webp";
+                e.currentTarget.src = getAssetPath("/images/robot/hero-robot.webp");
               }}
             />
           </div>

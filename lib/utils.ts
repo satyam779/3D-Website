@@ -12,3 +12,12 @@ export function formatNumber(num: number, digits: number = 2): string {
 export function clamp(val: number, min: number, max: number): number {
   return Math.min(Math.max(val, min), max);
 }
+
+export function getAssetPath(path: string): string {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  if (!path) return "";
+  if (base && path.startsWith("/") && !path.startsWith(base)) {
+    return `${base}${path}`;
+  }
+  return path;
+}
